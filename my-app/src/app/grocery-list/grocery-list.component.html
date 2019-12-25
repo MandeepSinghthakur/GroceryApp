@@ -1,0 +1,22 @@
+<div class="container">
+  <section class="card">
+    <div class="input-group mb-3">
+    <input type="text"  #groceryName class="form-control" placeholder="New Grocery Name" aria-label="Item" aria-describedby="basic-addon1">
+    <input type="text"  #groceryDescription class="form-control" placeholder="Description" aria-label="Item" aria-describedby="basic-addon1">
+    <input type="button" class="btn-primary" name="Add" value="Add" (click)="addtoGroceryList(groceryName.value,groceryDescription.value); groceryName.value='';groceryDescription.value='';">
+  </div>
+    <ol class="list-group">
+      <li *ngFor="let item of groceryList" class="list-group-item">
+        <div class="input-group ">
+          <input class="form-control" type="text" name="" [(ngModel)]="item.groceryName" >
+          <input  class="form-control" type="text" name="" [(ngModel)]="item.groceryDescription">
+        </div>
+        <div class="input-group ">
+        <input type="button" name="Update" value="Update" class="btn-primary btn-medium" (click)="updategroceryList(item)">
+
+        <input type="button" name="Delete" value="Delete" class="btn-danger btn-medium" (click)="deletefromGroceryList(item)">
+        </div>
+      <li>
+    </ol>
+  </section>
+</div>
